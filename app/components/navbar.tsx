@@ -6,8 +6,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { FiSearch } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import { HiMenuAlt4 } from "react-icons/hi";
-
-
 import {
   Sheet,
   SheetContent,
@@ -94,7 +92,7 @@ export default function Navbar ({ selectedCategory,setSelectedCategory }:NavbarP
                             <SheetTrigger><HiMenuAlt4 size={25}/></SheetTrigger>
                             <SheetContent className=" w-56 flex flex-col gap-4">
                                 <SheetHeader>
-                                <SheetTitle>LOGO</SheetTitle>
+                                <SheetTitle>Menu</SheetTitle>
                                 </SheetHeader>
                                 
                                  <div className=" flex flex-col gap-6 overflow-auto">
@@ -104,7 +102,8 @@ export default function Navbar ({ selectedCategory,setSelectedCategory }:NavbarP
                                             <p className=" text-lg">{category.name}</p>
                                         </div>
                                     ))}
-                                </div>    
+                                </div>
+                                <p className=" text-sm font-sans text-zinc-500 text-center mt-10">Develop By: <br />Darel Honrelas</p>    
                             </SheetContent>    
                         </Sheet>
                     </div>
