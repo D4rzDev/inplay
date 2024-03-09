@@ -114,47 +114,6 @@ const page = () => {
             <FaArrowLeft size={25}/>
           </Link>
         </div>
-      
-      <div className=' flex flex-col items-center md:justify-center gap-2 mt-6'>
-        <h1 className=' mb-2'>Videos</h1>
-       { loading ? (
-
-                <div className=" w-screen px-4 grid grid-cols-1 md:grid-cols-2 gap-8 lg:grid-cols-4">
-                     {[...Array(50)].map((_, index) => (
-                        <div key={index} className=" flex flex-col gap-2" >
-                            <Skeleton className="h-[180px] w-full rounded-lg" />
-                            <div className="space-y-2">
-                                <Skeleton className="h-4 w-[250px]" />
-                                <Skeleton className="h-4 w-[200px]" />
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                
-            )
-                
-              : (
-
-                <div className=" grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-                    { channelVideos.map ((video, idx) =>(
-                    <div key={idx} className=" flex flex-col gap-2"  >
-                        <Link href={`/${video.id.videoId}?search=${video.id.videoId}`} passHref> 
-                            <Image src={video.snippet.thumbnails.high.url} alt="img" width={500} height={500} className=" w-screen bg-slate-500 h-[180px] md:h-[180px] object-cover" />
-                            <p className="line-clamp-2 mt-2">{video.snippet.title}...</p>
-                        </Link>
-                        <Link href={`/channel/?search=${video.snippet.channelId}`} passHref>
-                            <div className=" flex items-center gap-1 mt-2">
-                                <p className=" font-sans text-sm text-gray-400 ">{video.snippet.channelTitle}</p>
-                                <IoIosCheckmarkCircle className=" text-[#e473ff]"/>
-                            </div>
-
-                        </Link>
-                        </div>
-                    ))}
-                </div>
-           
-                )}
-              </div>
     </div>
   )
 }
