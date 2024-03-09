@@ -10,50 +10,9 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { Button } from '@/components/ui/button'
 import { FaArrowLeft } from 'react-icons/fa'
 
-interface ChannelData {
-  statistics:{
-    subscriberCount: string;
-    videoCount: string;
-  }
-  snippet:{
-    description: string;
-    title: string;
-    customUrl: string;
-    thumbnails:{
-      high:{
-        url: string;
-      }
-      medium:{
-        url: string;
-      }
-    }
-  };
-};
-
-interface ChannelVideos{
-   id:{
-        videoId: string;
-    }
-   snippet: {
-        title: string;
-        channelTitle: string;
-        description: string;
-        publishedAt: string;
-        channelId: string;
-        thumbnails: {
-            high: {
-                url: string;
-            };
-        };
-    };
-}
-
 const page = () => {
   const searchParams = useSearchParams();
   const search = searchParams.get('search');
-  const [channelData, setChannelData] = useState<ChannelData | null>(null);
-  const [channelVideos, setChannelVideos] = useState<ChannelVideos[]>([]);
-  const [loading, setLoading] = useState(true);
 
  
   return (
@@ -62,6 +21,7 @@ const page = () => {
           <Link href={'/'}>
             <FaArrowLeft size={25}/>
           </Link>
+        <p>{search}</p>
         </div>
     </div>
   )
