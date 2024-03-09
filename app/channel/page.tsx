@@ -55,58 +55,7 @@ const page = () => {
   const [channelVideos, setChannelVideos] = useState<ChannelVideos[]>([]);
   const [loading, setLoading] = useState(true);
 
-  //channel
-  useEffect (() => {
-    const fetchChannel = async () => {
-        try {
-          const response = await axios.get('https://youtube-v3-lite.p.rapidapi.com/channels', {
-            method: 'GET',
-            params: {
-                id: search,
-                part: 'id,snippet,contentDetails,statistics'
-            },
-             headers: {
-                'X-RapidAPI-Key': 'cd936098damshc833db44e93774ep1f5c4fjsne8380714294f',
-                'X-RapidAPI-Host': 'youtube-v3-lite.p.rapidapi.com',
-            }
-          });
-            console.log(response.data.items)
-            setChannelData(response.data.items);
-            setLoading(false);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-
-      fetchChannel();
-  },[]);
-
-  //channelVideos
-  useEffect (() => {
-    const fetchChannelVideos = async () => {
-        try {
-          const response = await axios.get('https://youtube-v3-lite.p.rapidapi.com/search', {
-            method: 'GET',
-            params: {
-              channelId: search,
-              part: 'id,snippet'
-            },
-             headers: {
-                'X-RapidAPI-Key': 'cd936098damshc833db44e93774ep1f5c4fjsne8380714294f',
-                'X-RapidAPI-Host': 'youtube-v3-lite.p.rapidapi.com',
-            }
-          });
-            console.log(response.data.items)
-            setChannelVideos(response.data.items);
-            setLoading(false);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-
-      fetchChannelVideos();
-  },[]);
-
+ 
   return (
     <div className=' flex flex-col gap-4 p-4'>
       <div className=" bg-zinc-950 sticky top-0 p-4 z-10">
