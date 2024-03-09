@@ -71,7 +71,7 @@ const page = () => {
             }
           });
             console.log(response.data.items)
-            setChannel(response.data.items);
+            setChannelData(response.data.items);
             setLoading(false);
         } catch (error) {
           console.error('Error fetching data:', error);
