@@ -160,8 +160,6 @@ const page = () => {
             </div>
           )}
         </div>
-
-      </div>
       
       <div className=' flex flex-col items-center md:justify-center gap-2 mt-6'>
         <h1 className=' mb-2'>Videos</h1>
