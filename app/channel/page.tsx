@@ -120,7 +120,7 @@ const page = () => {
 
       </div>
       <div className=' flex items-center justify-center gap-4'>
-        <Image src={channel?.snippet.thumbnails.medium.url as string} alt={''} width={200} height={200} className=' h-16 w-16 rounded-full'/>
+        <img src={channel?.snippet.thumbnails.medium.url as string} alt="img" className=' h-16 w-16 rounded-full'/>
         <div className=' flex flex-col gap-2'>
           <div className=' flex items-center gap-2'>
             <h1 className='text-2xl font-bold'>{channel?.snippet.title}</h1>
