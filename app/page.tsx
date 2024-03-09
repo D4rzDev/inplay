@@ -9,7 +9,7 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<string>('Trending');
 
   return (
-    <section className=" flex flex-col px-4 h-screen bg-inherit">
+    <section className=" flex flex-col px-2 md:px-4 h-screen bg-inherit">
       <Navbar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}  />
       <div className=" flex flex-col px-4 h-screen md:flex-row">
         <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}  />
