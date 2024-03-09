@@ -10,7 +10,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { Button } from '@/components/ui/button'
 import { FaArrowLeft } from 'react-icons/fa'
 
-interface Channel {
+interface ChannelData {
   statistics:{
     subscriberCount: string;
     videoCount: string;
@@ -51,7 +51,7 @@ interface ChannelVideos{
 const page = () => {
   const searchParams = useSearchParams();
   const search = searchParams.get('search');
-  const [channel, setChannel] = useState<Channel| null>(null);
+  const [channelData, setChannelData] = useState<ChannelData | null>(null);
   const [channelVideos, setChannelVideos] = useState<ChannelVideos[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -114,33 +114,51 @@ const page = () => {
             <FaArrowLeft size={25}/>
           </Link>
         </div>
-      <div className=' relative w-full h-40 bg-zinc-700 rounded-md md:h-80' style={{backgroundImage: `url(${channel?.snippet.thumbnails.high.url})`, backgroundSize:'cover',backgroundPosition: 'center'}}>
-      </div>
-      <div className=' flex flex-col'>
 
-      </div>
-      <div className=' flex items-center justify-center gap-4'>
-        <img src={channel?.snippet.thumbnails.medium.url as string} alt="img" className=' h-16 w-16 rounded-full'/>
-        <div className=' flex flex-col gap-2'>
-          <div className=' flex items-center gap-2'>
-            <h1 className='text-2xl font-bold'>{channel?.snippet.title}</h1>
-            <IoIosCheckmarkCircle className=" text-[#e473ff]" size={20}/>
-          </div>
-          <p className=' text-xs text-zinc-400'>{channel?.snippet.customUrl}</p>
-          <div className=' flex items-center gap-2'>
-            <p className=' text-xs text-zinc-400'>{channel?.statistics.subscriberCount} subscribers</p>
-            <p className=' text-xs text-zinc-400'>{channel?.statistics.videoCount} videos</p>
-          </div>
-        </div>
-      </div>
+      <div >
+          {channelData ? (
+            <div className=' flex flex-col gap-4'>
+              <div className=' relative w-full h-40 bg-zinc-700 rounded-md md:h-80' style={{backgroundImage: `url(${channelData.snippet.thumbnails.high.url})`, backgroundSize:'cover',backgroundPosition: 'center'}}>
+              </div>
+              <div className=' flex flex-col'>
 
-      <div className=' flex flex-col md:w-[50%] gap-4'>
-        <div>
-          <p  className=' text-xs text-zinc-400 text-center'>{channel?.snippet.description}</p>
-        </div>
+              </div>
+              <div className=' flex items-center justify-center gap-4'>
+                
+                <img src={channelData.snippet.thumbnails.medium.url} alt="img" className=' h-16 w-16 rounded-full'/>
+                <div className=' flex flex-col gap-2'>
+                  <div className=' flex items-center gap-2'>
+                    <h1 className='text-2xl font-bold'>{channelData.snippet.title}</h1>
+                    <IoIosCheckmarkCircle className=" text-[#e473ff]" size={20}/>
+                  </div>
+                  <p className=' text-xs text-zinc-400'>{channelData.snippet.customUrl}</p>
+                  <div className=' flex items-center gap-2'>
+                    <p className=' text-xs text-zinc-400'>{channelData.statistics.subscriberCount} subscribers</p>
+                    <p className=' text-xs text-zinc-400'>{channelData.statistics.videoCount} videos</p>
+                  </div>
+                </div>
+              </div>
 
-        <div className=' w-full'>
-          <Button className=' w-full rounded-full bg-[#e473ff] text-white'>Subscribe</Button>
+              <div className=' flex flex-col md:w-[50%] gap-4'>
+                <div>
+                  <p  className=' text-xs text-zinc-400 text-center'>{channelData.snippet.description}</p>
+                </div>
+
+                <div className=' w-full'>
+                  <Button className=' w-full rounded-full bg-[#e473ff] text-white'>Subscribe</Button>
+                </div>
+
+              </div>
+            </div>
+          ) : (
+             <div className="flex flex-col space-y-3">
+              <Skeleton className="h-[180px] w-full rounded-lg" />
+              <div className="space-y-2">
+                <Skeleton className="h-4 w-[250px]" />
+                <Skeleton className="h-4 w-[200px]" />
+              </div>
+            </div>
+          )}
         </div>
 
       </div>
