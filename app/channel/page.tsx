@@ -51,7 +51,7 @@ interface ChannelVideos{
 const page = () => {
   const searchParams = useSearchParams();
   const search = searchParams.get('search');
-  const [channel, setChannel] = useState<Channel| undefined>(undefined);
+  const [channel, setChannel] = useState<Channel| null>(null);
   const [channelVideos, setChannelVideos] = useState<ChannelVideos[]>([]);
   const [loading, setLoading] = useState(true);
 
