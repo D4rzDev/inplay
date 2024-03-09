@@ -90,7 +90,7 @@ export default function FetchData({ setSelectedCategory, selectedCategory}:fetch
               : (
 
                 <div className=" grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-                    { videos.map ((video, idx) =>(
+                    { videos.filter(video => video.snippet.thumbnails.high && video.snippet.thumbnails.high.url).map ((video, idx) =>(
                     <div key={idx} className=" flex flex-col gap-2"  >
                         <Link href={`/${video.id.videoId}?search=${video.id.videoId}`} passHref> 
                             <Image src={video.snippet.thumbnails.high.url} alt="" width={500}  height={500} className=" w-screen h-[180px] md:h-[180px] lg:h-[150px] " />
