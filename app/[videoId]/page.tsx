@@ -225,7 +225,7 @@ export default function Video () {
                                     <p>Comments </p>
                                     <p className=" text-zinc-500">{video.statistics.commentCount}</p>
                                 </SheetTrigger>
-                                <SheetContent side={side} className=" h-screen p-4 overflow-scroll">
+                                <SheetContent side={side} className=" h-full p-4 overflow-scroll">
                                     <SheetHeader >
                                     <SheetTitle>Comments</SheetTitle>
                                     </SheetHeader>
