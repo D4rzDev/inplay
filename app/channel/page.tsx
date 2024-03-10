@@ -116,7 +116,7 @@ const ChannelDetails: React.FC = () => {
 
        <div >
           {channelData ? (
-            <div className=' flex flex-col gap-4'>
+            <div className=' flex flex-col items-center gap-4'>
               <div className=' relative w-full h-40 bg-zinc-700 rounded-md md:h-80' style={{backgroundImage: `url(${channelData.snippet.thumbnails.high.url})`, backgroundSize:'cover',backgroundPosition: 'center'}}>
               </div>
               <div className=' flex flex-col'>
