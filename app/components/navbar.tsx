@@ -63,7 +63,7 @@ export default function Navbar ({ selectedCategory,setSelectedCategory }:NavbarP
                         <FiSearch size={20}/>
                         </Button>
                     </div>
-                    <div className=" flex">
+                    <div className=" flex md:hidden">
                         <Sheet key={top}>
                         <SheetTrigger><Button variant={'primary'} size={'sm'}><FiSearch size={20}/></Button></SheetTrigger>
                         <SheetContent side={top} className="flex flex-col gap-6 w-screen h-[200px]">
